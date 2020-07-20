@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load bootstrap4 %}
+{% block content %}
+<br><br>
+<br><br>
+<div class="container content">
+  <div class="row">
+    <div class="col-md-5"></div>
+    <div class="col-md-7">
+      {% if searched_business %}
+      <div class="post">
+            <img class="rounded-circle account-profile ml-5" src="{{ user.profile.image.url }}" alt="user" width="50px" height="50px">
+            <h3 class="ml-5">{{user.username}}</h3>
+            {% for biz in searched_business%}
+            <div class="media-container">
+              <h4 class="account-header dark-text mt-3">{{biz.name}}</h4>
+              <h5 class="dark-text"><strong>Email: {{biz.email}}</strong></h5>
+            </div>
+            {% endfor %}
+
+      </div>
+      {% else %}
+        <h3>0 businesses with that  {{message}}</h3>
+      {% endif %}
+    </div>
+  </div>
+  </div>
+{% endblock %}

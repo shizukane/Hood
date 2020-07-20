@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Concert+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+
+.content{
+  /* font-family: 'Josefin Sans', sans-serif; */
+  font-weight: light;
+  font-family: 'Roboto Slab', serif;
+
+  /* font-family: 'Concert One', cursive; */
+}
+
+
+/* Only for snippet */
+.double-nav .breadcrumb-dn {
+  color: #fff;
+}
+
+.fonts{
+  font-size:8px;
+}
+
+.sticky-sidebar{
+  background-position: fixed;
+}
+.container-full{
+  overflow-x: hidden;
+  overflow-y:hidden;
+}
+.banner{
+  background-image: url(../images/hodi.jpg);
+  height:70vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow-x: hidden;
+}
+
+
+.overlaybanner{
+  background-color: black;
+  opacity: 0.9;
+  height:70vh;
+}

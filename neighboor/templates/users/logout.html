@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load bootstrap4 %}
+
+<div class="container-full banner content">
+<div class=" overlaybanner text-center ">
+  <br><br><br><br><br><br><br><br><br><br><br>
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="ml-5">
+
+      <h1 class="text-center lime-text">myHood</h1>
+      <p class="text-center mt-5 text-white">myHood is a web application that allow users to be in the loop about everything happening in their neighborhood.<br> From contact information of different handyman to meeting announcements or even alerts.</p>
+      <a  class="text-white ml-5 pl-5 mt-2 text-uppercase btn btn-outline-lime" href="{% url 'register'%}"><h5>Visit Site</h5></a>
+    </div>
+  </div>
+</div>
+</div>
+
+</section>
+{% endblock %}

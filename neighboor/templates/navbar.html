@@ -1,0 +1,90 @@
+
+{% load static%}
+{% load bootstrap4 %}
+    <!--Navbar-->
+    <nav style="height: 22px;" class="navbar navbar-expand-md  content">
+
+      <!-- Navbar brand -->
+      <div class="award">
+            <a class="nav-link lime-text" href="/">
+              <h1>myHood</h1>
+              <span class="sr-only">(current)</span>
+            </a>
+      </div>
+      <!-- Collapse button -->
+      <button class="navbar-toggler bg-info text-white" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+        aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+        <!-- <span class="navbar-toggler-icon"></span> -->
+        Menu
+      </button>
+
+      <!-- Collapsible content -->
+      <div class="collapse navbar-collapse" id="basicExampleNav">
+
+        <!-- Links -->
+        <ul class="navbar-nav ml-auto text-white">
+          <!-- Dropdown -->
+          {% if user.is_authenticated%}
+          
+            <div class="dark-text">
+              <form class="form-inline dark-text" action="{% url 'search' %}" method="get">
+                <div class="md-form my-0">
+                  {% csrf_token %}
+                  <input style="width: 33vh; margin-top: 14px; font-size: 12px;" class="form-control mr-sm-2 dark-white" type="text" placeholder="Search Business" aria-label="Search" name="business">
+                </div>
+              </form>
+            </div>
+        
+          
+          <p class="  ml-2">
+            <li class="nav-item ml-2 ">
+              <a class="nav-link fonts" href="{% url 'poststory'%}"><i class="fas fa-book fa-2x brown-text"> Post</i></a>
+            </li>
+          </p>
+          <p class="  ml-2">
+            <li class="nav-item ml-2 ">
+              <a class="nav-link text-dark fonts" href="{% url 'hood'%}"><i class="fa fa-igloo fa-2x brown-text"> addHood</i></a>
+            </li>
+          </p>
+
+          <!-- <p class="  ml-2">
+            <li class="nav-item ml-2 ">
+              <a class="nav-link text-dark fonts" href="#"><i class="fas fa-bell fa-2x brown-text">Stories</i></a>
+            </li>
+          </p> -->
+          <p class="  ml-2">
+            <li class="nav-item ml-2 ">
+              <a class="nav-link text-dark fonts" href="{% url 'business'%}"><i class="fas fa-bell fa-2x brown-text"> addBusiness</i></a>
+            </li>
+          </p><!-- <p class="  ml-2">
+            <li class="nav-item ml-2 ">
+              <a class="nav-link text-dark fonts" href="#"><i class="fas fa-bell fa-2x brown-text">Stories</i></a>
+            </li>
+          </p> -->
+          <p class="ml-5 ">
+            <li class="nav-item dropdown ml- text-white" style="background-color: beige;">
+              <a class="nav-link dropdown-toggle text-dark fonts" id="navbarDropdownMenuLink" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false"><i class="fa fa-user fa-2x brown-text">Account</i></a>
+              <div class="dropdown-menu dropdown-primary text-white bg-dark" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item text-white" href="{% url 'profile' %}">Profile</a>
+                <a class="dropdown-item text-white" href="{% url 'logout' %}">Logout</a>
+              </div>
+              </li>
+            </p>
+          </div>
+        
+          {% else %}
+          <div class="">
+            <li class="nav-item">
+              <a class="nav-link text-dark content ml-2" href="{% url 'login' %}"><h2>Login</h2></a>
+            </li>
+          </div>
+          <div class="">
+            <li class="nav-item">
+              <a class="nav-link text-dark ml-2" href="{% url 'register' %}"><h2>Register</h2></a>
+            </li>
+          </div>
+          {% endif %}
+
+    </nav>
+    <!--/.Navbar-->

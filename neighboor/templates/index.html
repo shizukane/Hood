@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% block content %}
+      <hr class="mt-5">
+
+
+        <div class="container content-container content mt-5 ">
+          <div class="">
+              <div class="row">
+                <div class="col-md-4 ">
+                  <div class="container mt-5">
+                    <div class="row py-3">
+                        <div class="ml-5" id="sticky-sidebar">
+                          <div class="profile sticky-top">
+                                {% for hood in hoods %}
+                                {% if hood == user.profile.neighborhood %}
+
+                                    <img class="rounded-circle account-profile" src="{{hood.image.url }}" alt="hood" height="120px" width="130px">
+                                    <div class="media-container">
+                                      <h3 class="account-header mt-3 lime-text">{{hood.location}}, {{hood.name}}</h3>
+                                      <hr>
+                                      <h5 class="dark-text mt-3">Occupants ~ <span class="brown-text">{{hood.occupants}}</span></h5>
+                                      <h5 class="dark-text mt-3">Health Department Contact: <span class="brown-text">{{hood.health_department_contact}}</span></h5>
+                                      <h5 class="dark-text mt-3">Police Department Contact: <span class="brown-text">{{hood.police_authority_contact}}</span></h5>
+
+                                    </div>
+
+                                    {% endif %}
+                                {% endfor %}
+                                <hr>
+                                <div class="pt-2 mt-2">
+                                <h2 class=" mt-3 lime-text">Businesses</h2>
+                                <hr>
+                                {% for business in businesses %}
+                                {% if business.neighborhood == user.profile.neighborhood %}
+                                    <div class="media-container">
+                                      <h5 class="account-header mt-3 dark-text">{{business.name}}: <span class="brown-text">{{business.email}}</span></h5>
+
+
+                                    </div>
+
+                                    {% endif %}
+                                {% endfor %}
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                  </div>
+
+                  <div class="col-md-8 text-center">
+                    <h1 class="mt-5 text-black text-center brown-text text-uppercase">{{user.profile.neighborhood }}</h1>
+                      {% for post in posts %}
+                      {% if post.neighborhood == user.profile.neighborhood %}
+
+                        <div class="media-container mt-5">
+                          <div class="card bg-dark text-white">
+                            <div class="card-header">
+                              <h3 class="account-header mt-2 lime-text"><img class="rounded-circle account-profile" src="{{ user.profile.image.url }}" alt="user" width="30px"height="30px"> {{post.user}}</h3>
+                              <h3 class="text-black mt-2">{{post.title}}</h3>
+
+                            </div>
+                            <div class="card-footer">
+                              <p class="text-black mt-2">{{post.story}}</p>
+
+                            </div>
+
+                          </div>
+                              <div class="profile-image">
+                              </div>
+                              <div class="post-author">
+                                <hr>
+                              </div>
+                            <div class="post-info">
+                              <div class="post-caption">
+                              </div>
+                              <div class="post-story">
+                              </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                      {% endfor %}
+                  </div>
+                  <div class="col-md-4">
+
+                  </div>
+              </div>
+          </div>
+        </div>
+        <hr>
+{% endblock %}

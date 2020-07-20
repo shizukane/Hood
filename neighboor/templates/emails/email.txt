@@ -1,0 +1,3 @@
+Hello{{name}}
+
+Welcome to myHood, keep track of your neighborhood activities.
